@@ -1,0 +1,16 @@
+.expense-button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 1.5rem;
+    border: 3px solid red;
+    background-color: blue;
+    color: white;
+    border-radius: 12px;
+    margin-right: 1rem;
+}
+
+.expense-button:hover,
+.expense-button:active {
+    background-color: yellow;
+    color: black;
+}
