@@ -1,8 +1,13 @@
+import { useState } from 'react';
+
 import './index.css';
 import Expenses from './components/Expenses';
 import UserInput from './components/UserInput';
 
 function App() {
+  const [expenseData, setExpenseData] = useState({});
+  const [incomeData, setIncomeData] = useState({});
+
   const expenses = [
     {
       id: 'e1',
@@ -25,10 +30,35 @@ function App() {
     },
   ];
 
+  const saveExpenseHandler = (data) => {
+    setExpenseData(() => {
+      const newExpenseData = {
+        ...data,
+        id: Math.random().toString(),
+      };
+      console.log('Expense data from App.js', newExpenseData);
+      return newExpenseData;
+    });
+  };
+
+  const saveIncomeHandler = (data) => {
+    setIncomeData(() => {
+      const newIncomeData = {
+        ...data,
+        id: Math.random().toString(),
+      };
+      console.log('Income data from App.js', newIncomeData);
+      return newIncomeData;
+    });
+  };
+
   return (
     <div className="App">
       <h1>Money Tracker</h1>
-      <UserInput />
+      <UserInput
+        onSaveExpense={saveExpenseHandler}
+        onSaveIncome={saveIncomeHandler}
+      />
       <Expenses expenses={expenses} />
     </div>
   );

@@ -4,7 +4,7 @@ import IncomeButton from './IncomeButton';
 
 import './UserInput.css';
 
-const UserInput = () => {
+const UserInput = (props) => {
   const [formData, setFormData] = useState({ title: '', amount: '', date: '' });
 
   const handleChange = (event) => {
@@ -18,11 +18,11 @@ const UserInput = () => {
   };
 
   const handleExpenseButton = () => {
-    console.log('Expense submitted', formData);
+    props.onSaveExpense(formData);
   };
 
   const handleIncomeButton = () => {
-    console.log('Income submitted', formData);
+    props.onSaveIncome(formData);
   };
 
   return (
