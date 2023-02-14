@@ -1,9 +1,13 @@
 import React from 'react';
 import './IncomeButton.css';
 
-const IncomeButton = () => {
+const IncomeButton = (props) => {
   return (
-    <button className="income-button" type="submit">
+    <button
+      className="income-button"
+      type="submit"
+      onClick={props.handleButtonPress}
+    >
       Add Income
     </button>
   );
