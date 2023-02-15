@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
 import './index.css';
-import Expenses from './components/Expenses/Expenses';
+import Transactions from './components/Transactions/Transactions';
 import UserInput from './components/UserInput/UserInput';
 
-const DUMMY_LIST = [
+const DUMMY_EXP = [
   {
     id: 'e1',
     title: 'Toilet Paper',
@@ -12,6 +12,9 @@ const DUMMY_LIST = [
     date: new Date(2020, 7, 14),
   },
   { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+];
+
+const DUMMY_INC = [
   {
     id: 'e3',
     title: 'Car Insurance',
@@ -27,22 +30,15 @@ const DUMMY_LIST = [
 ];
 
 function App() {
-  const [expenseData, setExpenseData] = useState(DUMMY_LIST);
-  const [incomeData, setIncomeData] = useState(DUMMY_LIST);
+  const [expenseData, setExpenseData] = useState(DUMMY_EXP);
+  const [incomeData, setIncomeData] = useState(DUMMY_INC);
 
   const saveExpenseHandler = (data) => {
     setExpenseData((prevData) => [data, ...prevData]);
   };
 
   const saveIncomeHandler = (data) => {
-    setIncomeData(() => {
-      const newIncomeData = {
-        ...data,
-        id: Math.random().toString(),
-      };
-      console.log('Income data from App.js', newIncomeData);
-      return newIncomeData;
-    });
+    setIncomeData((prevData) => [data, ...prevData]);
   };
 
   return (
@@ -52,7 +48,7 @@ function App() {
         onSaveExpense={saveExpenseHandler}
         onSaveIncome={saveIncomeHandler}
       />
-      <Expenses expenses={expenseData} />
+      <Transactions expenses={expenseData} incomes={incomeData} />
     </div>
   );
 }

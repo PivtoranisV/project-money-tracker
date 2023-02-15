@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import ExpenseButton from '../Expenses/ExpenseButton';
 import IncomeButton from '../Incomes/IncomeButton';
-
 import './UserInput.css';
 
 const UserInput = (props) => {
