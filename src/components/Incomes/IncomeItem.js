@@ -8,7 +8,9 @@ const IncomeItem = (props) => {
       <TransactionDate date={props.date} />
       <div className="income-item__description">
         <h2>{props.title}</h2>
-        <div className="income-item__price">${props.amount}</div>
+        <div className="income-item__price">
+          ${Number(props.amount).toFixed(2)}
+        </div>
       </div>
     </div>
   );

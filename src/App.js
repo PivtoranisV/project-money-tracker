@@ -34,11 +34,17 @@ function App() {
   const [incomeData, setIncomeData] = useState(DUMMY_INC);
 
   const saveExpenseHandler = (data) => {
-    setExpenseData((prevData) => [data, ...prevData]);
+    setExpenseData((prevData) => [
+      { id: prevData.length + 1, ...data },
+      ...prevData,
+    ]);
   };
 
   const saveIncomeHandler = (data) => {
-    setIncomeData((prevData) => [data, ...prevData]);
+    setIncomeData((prevData) => [
+      { id: prevData.length + 1, ...data },
+      ...prevData,
+    ]);
   };
 
   return (

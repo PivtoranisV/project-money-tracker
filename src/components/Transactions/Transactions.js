@@ -4,26 +4,35 @@ import IncomeItem from '../Incomes/IncomeItem';
 import YearFilter from '../Filter/YearFilter';
 import './Transactions.css';
 
-const Expenses = (props) => {
+const Transactions = (props) => {
   const [filter, setFilter] = useState('2021');
 
   const chooseFilterHandler = (ChosenFilter) => {
     setFilter(ChosenFilter);
   };
 
+  const filteredExpenses = props.expenses.filter(
+    (expense) => new Date(expense.date).getFullYear().toString() === filter
+  );
+  const filteredIncomes = props.incomes.filter(
+    (income) => new Date(income.date).getFullYear().toString() === filter
+  );
+
   return (
     <div>
       <div className="transactions">
         <YearFilter selected={filter} onYearFilter={chooseFilterHandler} />
-        {props.expenses.map((expense) => (
+        {filteredExpenses.map((expense) => (
           <ExpenseItem
+            key={expense.id}
             title={expense.title}
             amount={expense.amount}
             date={expense.date}
           />
         ))}
-        {props.incomes.map((income) => (
+        {filteredIncomes.map((income) => (
           <IncomeItem
+            key={income.id}
             title={income.title}
             amount={income.amount}
             date={income.date}
@@ -34,4 +43,4 @@ const Expenses = (props) => {
   );
 };
 
-export default Expenses;
+export default Transactions;
