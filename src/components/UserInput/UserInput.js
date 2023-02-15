@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ExpenseButton from './ExpenseButton';
-import IncomeButton from './IncomeButton';
+import ExpenseButton from '../Expenses/ExpenseButton';
+import IncomeButton from '../Incomes/IncomeButton';
 
 import './UserInput.css';
 

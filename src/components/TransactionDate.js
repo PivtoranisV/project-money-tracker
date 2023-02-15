@@ -1,14 +1,16 @@
 import React from 'react';
-import './Date.css';
+import './TransactionDate.css';
 
-const Date = (props) => {
-  const year = props.date.toLocaleString('en-GB', {
+const TransactionDate = (props) => {
+  const correctDate = new Date(props.date);
+
+  const year = correctDate.toLocaleString('en-GB', {
     year: 'numeric',
   });
-  const month = props.date.toLocaleString('en-GB', {
+  const month = correctDate.toLocaleString('en-GB', {
     month: 'long',
   });
-  const day = props.date.toLocaleString('en-GB', {
+  const day = correctDate.toLocaleString('en-GB', {
     day: 'numeric',
   });
 
@@ -21,4 +23,4 @@ const Date = (props) => {
   );
 };
 
-export default Date;
+export default TransactionDate;
