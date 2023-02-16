@@ -1,0 +1,9 @@
+.incomes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.incomes-list__fallback {
+    color: white;
+    text-align: center;
+}

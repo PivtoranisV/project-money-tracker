@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ExpenseItem from '../Expenses/ExpenseItem';
-import IncomeItem from '../Incomes/IncomeItem';
 import YearFilter from '../Filter/YearFilter';
+import ExpensesList from '../Expenses/ExpensesList';
+import IncomesList from '../Incomes/IncomesList';
 import './Transactions.css';
 
 const Transactions = (props) => {
@@ -22,22 +22,8 @@ const Transactions = (props) => {
     <div>
       <div className="transactions">
         <YearFilter selected={filter} onYearFilter={chooseFilterHandler} />
-        {filteredExpenses.map((expense) => (
-          <ExpenseItem
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-            date={expense.date}
-          />
-        ))}
-        {filteredIncomes.map((income) => (
-          <IncomeItem
-            key={income.id}
-            title={income.title}
-            amount={income.amount}
-            date={income.date}
-          />
-        ))}
+        <ExpensesList expenseItems={filteredExpenses} />
+        <IncomesList incomeItems={filteredIncomes} />
       </div>
     </div>
   );
