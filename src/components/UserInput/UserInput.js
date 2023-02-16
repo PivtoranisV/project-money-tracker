@@ -5,6 +5,7 @@ import './UserInput.css';
 
 const UserInput = (props) => {
   const [formData, setFormData] = useState({ title: '', amount: '', date: '' });
+  const [isClicked, setIsClicked] = useState(false);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -18,11 +19,34 @@ const UserInput = (props) => {
 
   const handleExpenseButton = () => {
     props.onSaveExpense(formData);
+    setIsClicked(false);
   };
 
   const handleIncomeButton = () => {
     props.onSaveIncome(formData);
+    setIsClicked(false);
   };
+
+  const handleTransactionButton = () => {
+    setIsClicked(true);
+  };
+
+  const handleCancel = () => {
+    setIsClicked(false);
+  };
+
+  if (!isClicked) {
+    return (
+      <div className="user-input">
+        <button
+          className="transaction-button"
+          onClick={handleTransactionButton}
+        >
+          Add Transaction
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="user-input">
@@ -63,6 +87,9 @@ const UserInput = (props) => {
           </div>
         </div>
       </form>
+      <button type="button" onClick={handleCancel} className="cancel-button">
+        Cancel Transaction
+      </button>
     </div>
   );
 };

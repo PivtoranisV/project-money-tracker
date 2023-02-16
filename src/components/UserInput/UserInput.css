@@ -36,3 +36,38 @@
 .user-input__actions {
     display: flex;
 }
+
+.transaction-button {
+    font: inherit;
+    cursor: pointer;
+    padding: 1rem 2.5rem;
+    border: 3px solid yellow;
+    background-color: blue;
+    color: white;
+    border-radius: 12px;
+    margin-right: 1rem;
+}
+
+.transaction-button:hover,
+.transaction-button:active {
+    background-color: yellow;
+    color: black;
+    border: 3px solid blue;
+}
+
+.cancel-button {
+    font: inherit;
+    cursor: pointer;
+    padding: 0.5rem 2rem;
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    border-radius: 12px;
+    margin-right: 1rem;
+}
+
+.cancel-button:hover,
+.cancel-button:active {
+    background-color: rgb(182, 182, 182);
+    color: black;
+}
