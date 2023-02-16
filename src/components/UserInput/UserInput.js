@@ -19,12 +19,12 @@ const UserInput = (props) => {
 
   const handleExpenseButton = () => {
     props.onSaveExpense(formData);
-    setIsClicked(false);
+    setFormData({ title: '', amount: '', date: '' });
   };
 
   const handleIncomeButton = () => {
     props.onSaveIncome(formData);
-    setIsClicked(false);
+    setFormData({ title: '', amount: '', date: '' });
   };
 
   const handleTransactionButton = () => {
@@ -39,10 +39,11 @@ const UserInput = (props) => {
     return (
       <div className="user-input">
         <button
+          type="submit"
           className="transaction-button"
           onClick={handleTransactionButton}
         >
-          Add Transaction
+          Open Input
         </button>
       </div>
     );
@@ -88,7 +89,7 @@ const UserInput = (props) => {
         </div>
       </form>
       <button type="button" onClick={handleCancel} className="cancel-button">
-        Cancel Transaction
+        Close Input
       </button>
     </div>
   );

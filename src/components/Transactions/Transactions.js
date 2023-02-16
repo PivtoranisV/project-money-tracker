@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import YearFilter from '../Filter/YearFilter';
 import ExpensesList from '../Expenses/ExpensesList';
 import IncomesList from '../Incomes/IncomesList';
+import TransactionChart from './TransactionChart';
 import './Transactions.css';
 
 const Transactions = (props) => {
-  const [filter, setFilter] = useState('2021');
+  const [filter, setFilter] = useState('2023');
 
   const chooseFilterHandler = (ChosenFilter) => {
     setFilter(ChosenFilter);
@@ -22,6 +23,10 @@ const Transactions = (props) => {
     <div>
       <div className="transactions">
         <YearFilter selected={filter} onYearFilter={chooseFilterHandler} />
+        <TransactionChart
+          expenses={filteredExpenses}
+          incomes={filteredIncomes}
+        />
         <ExpensesList expenseItems={filteredExpenses} />
         <IncomesList incomeItems={filteredIncomes} />
       </div>

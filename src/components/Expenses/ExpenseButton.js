@@ -5,7 +5,7 @@ const ExpenseButton = (props) => {
   return (
     <button
       className="expense-button"
-      type="submit"
+      type="button"
       onClick={props.handleButtonPress}
     >
       Add Expenses

@@ -5,7 +5,7 @@ const IncomeButton = (props) => {
   return (
     <button
       className="income-button"
-      type="submit"
+      type="button"
       onClick={props.handleButtonPress}
     >
       Add Income
